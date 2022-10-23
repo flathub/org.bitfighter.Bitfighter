@@ -1,12 +1,16 @@
 app-id: org.bitfighter.Bitfighter
 runtime: org.freedesktop.Platform
-runtime-version: 22.08
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 command: bitfighter
 rename-icon: bitfighter
 rename-desktop-file: bitfighter.desktop
 finish-args:
-  - --device=dri
+# We must use `all` to get USB controllers. This is regrettable, since it
+# exposes way more than just controllers. If "just controllers" are added
+# to a future flatpak spec, we will need to include `dri` which was here
+# before we swapped to `all`.
+  - --device=all 
   - --share=network
   - --share=ipc
   - --socket=x11
