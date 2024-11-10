@@ -73,3 +73,5 @@ modules:
         path: captions.patch
       - type: patch
         path: rename-icon.patch
+      - type: patch
+        path: appstream-validate.patch
